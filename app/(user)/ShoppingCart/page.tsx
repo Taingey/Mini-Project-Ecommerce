@@ -97,7 +97,7 @@ export default function Shop() {
             {productsState.map((product) => (
               <div
                 key={product.id}
-                className="flex items-center justify-between w-full gap-5 border-[1px] p-5 border-slate-600"
+                className="flex items-center justify-between w-full gap-5 border-[1px] p-3 border-slate-600"
               >
                 <img src={product.image} alt="" className="w-[10rem]" />
                 <div className="flex flex-col gap-4">

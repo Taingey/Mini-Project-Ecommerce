@@ -24,6 +24,8 @@ import Settings from "@mui/icons-material/Settings";
 import Logout from "@mui/icons-material/Logout";
 import PersonAdd from "@mui/icons-material/PersonAdd";
 import Category from "../homepage/Categoty";
+import { useAppDispatch } from "@/redux/hooks";
+import { fetchUserProfile } from "@/redux/features/userProfile/userProfileSlice";
 
 type MenuItem = {
   name: ReactNode;
@@ -40,7 +42,7 @@ export default function NavbarComponent() {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null); // Initialize state with null
   const open = Boolean(anchorEl);
   const { data: session, status } = useSession();
-
+  const dispatch = useAppDispatch();
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
@@ -48,6 +50,9 @@ export default function NavbarComponent() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  useEffect(() => {
+    dispatch(fetchUserProfile());
+  }, [dispatch]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -133,7 +138,7 @@ export default function NavbarComponent() {
                     textAlign: "center"
                   }}
                 >
-                  <Tooltip title="Account settings">
+                  <Tooltip title="">
                     <IconButton
                       onClick={handleClick}
                       size="small"
@@ -142,11 +147,13 @@ export default function NavbarComponent() {
                       aria-haspopup="true"
                       aria-expanded={open ? "true" : undefined}
                     >
-                      <Avatar
-                        src={session.user.image}
-                        alt={session.user.name}
-                        style={{ width: "40px", borderRadius: "50%" }}
-                      />
+                      <Tooltip title={session.user.name}>
+                        <Avatar
+                          src={session.user.image}
+                          alt={session.user.name}
+                          style={{ width: "40px", borderRadius: "50%" }}
+                        />
+                      </Tooltip>
                     </IconButton>
                   </Tooltip>
                 </Box>

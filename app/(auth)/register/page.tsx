@@ -12,40 +12,40 @@ import * as Yup from "yup";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
 type ValueTypes = {
-  email: string;
-  password1: string;
-  password2: string;
-  first_name: string;
-  last_name: string;
+	email: string;
+	password1: string;
+	password2: string;
+	first_name: string;
+	last_name: string;
 };
 
 const initialValues: ValueTypes = {
-  email: "",
-  password1: "",
-  password2: "",
-  first_name: "",
-  last_name: ""
+	email: "",
+	password1: "",
+	password2: "",
+	first_name: "",
+	last_name: "",
 };
 
-const strongPasswordRegex = new RegExp(
-  "^(?=.*[A-Z])(?=.*[a-z])(?=.*d)(?=.*[@#$%^&*]).{8,}$"
-);
+// 1- At least one upper case English letter, (?=.*[A-Z])
+// 2- At least one lower case English letter, (?=.*[a-z])
+// 3- At least one digit, (?=.*\d)
+// 4- At least one special character, (?=.*[@#$%^&*])
+const strongPasswordRegex = new RegExp("^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@#$%^&*]).{8,}$");
 
 const validationSchema = Yup.object().shape({
-  email: Yup.string().email("Invalid email").required("Required"),
-  password1: Yup.string()
-    .min(8, "Password is too short, At lease 8 characters")
-    .matches(
-      strongPasswordRegex,
-      "Password must contain at least one upper case English letter, one lower case English letter, one digit and one special character"
-    )
-    .required("Required"),
-  password2: Yup.string()
-    .oneOf([Yup.ref("password1")], "Passwords must match")
-    .required("Required"),
-  first_name: Yup.string().required("Required"),
-  last_name: Yup.string().required("Required")
+	email: Yup.string().email("Invalid email").required("Required"),
+	password1: Yup.string()
+		.min(8, "Password is too short, At lease 8 characters")
+		.matches(strongPasswordRegex, "Password must contain at least one upper case English letter, one lower case English letter, one digit and one special character").required("Required"),
+	password2: Yup.string()
+		.oneOf([Yup.ref("password1")], "Passwords must match")
+		.required("Required"),
+	first_name: Yup.string().required("Required"),
+	last_name: Yup.string().required("Required"),
 });
+
+
 
 export default function Register() {
   const [showPassword, setShowPassword] = useState(false);
@@ -176,7 +176,7 @@ export default function Register() {
                         type="text"
                         name="first_name"
                         id="first_name"
-						placeholder="First Name"
+                        placeholder="First Name"
                         className="w-full px-8 py-4  font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
                       />
                       <ErrorMessage
@@ -190,7 +190,7 @@ export default function Register() {
                         type="text"
                         name="last_name"
                         id="last_name"
-						placeholder="Last Name"
+                        placeholder="Last Name"
                         className="w-full px-8 py-4  font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
                       />
                       <ErrorMessage
@@ -204,7 +204,7 @@ export default function Register() {
                         type={showPassword ? "text" : "password"}
                         name="password"
                         id="password"
-						placeholder="Password"
+                        placeholder="Password"
                         className="w-full px-8 py-4  font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white "
                       />
                       {!showPassword ? (
@@ -229,7 +229,7 @@ export default function Register() {
                         type={showPassword ? "text" : "password"}
                         name="password2"
                         id="password2"
-						placeholder="Confirm Password"
+                        placeholder="Confirm Password"
                         className="w-full px-8 py-4  font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
                       />
                       {!showPassword ? (

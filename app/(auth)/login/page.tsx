@@ -8,7 +8,6 @@ import Link from "next/link";
 import { IoEyeOffSharp, IoEyeSharp } from "react-icons/io5";
 import { useRouter } from "next/navigation";
 
-
 type ValueTypes = {
   email: string;
   password: string;
@@ -27,39 +26,49 @@ const validationSchema = Yup.object().shape({
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
+
   const router = useRouter();
   const handleShowPassword = () => {
     setShowPassword(!showPassword);
   };
 
-  useEffect(() => {
-    if (status === "authenticated") {
-      router.push('/');
-    }
-  }, [status]);
-  const handleSubmit = (values: ValueTypes) => {
+  const handleSubmit = async (values: ValueTypes) => {
     setLoading(true);
-    fetch(`http://localhost:3000/api/login`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(values)
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setLoading(false);
-        router.push("/");
-      })
-      .catch((error) => {
-        console.log(error);
-        setLoading(false);
+    try {
+      const response = await fetch(`http://localhost:3000/api/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
       });
-      
+
+      if (response.ok) {
+        const data = await response.json();
+        const accessToken = data.accessToken;
+        localStorage.setItem('accessToken', accessToken);
+        console.log(data);
+      } else {
+        console.error('Authentication failed');
+      }
+    } catch (error) {
+      console.error('Error during login:', error);
+    } finally {
+      setLoading(false);
+    }
   };
+ 
+
+	if (loading) {
+		return (
+			<div className={`${style.container}`}>
+				<h1 className="text-6xl text-center">Loading...</h1>
+			</div>
+		);
+	}
 
   return (
+
     <main>
       <Formik
         initialValues={initialValues}
@@ -216,6 +225,7 @@ export default function Login() {
           </div>
         </Form>
       </Formik>
-    </main>
+      </main>
+
   );
 }

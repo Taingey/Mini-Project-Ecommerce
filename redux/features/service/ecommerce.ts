@@ -53,6 +53,7 @@ export const ecommerceApi = createApi({
 });
 
 export const {
+  useGetProductsQuery,
   useGetProductByIdQuery,
   useCreateProductMutation,
   useUpdateProductMutation,
