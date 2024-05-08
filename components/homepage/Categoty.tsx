@@ -74,7 +74,7 @@ const Category: React.FC<Props> = ({ categoryService }: Props) => {
           aria-expanded={open ? "true" : undefined}
           onClick={(event) => setAnchorEl(event.currentTarget)}
         >
-          <FaShoppingCart color="action" />
+          <FaShoppingCart color="action" className="text-black dark:text-white"/>
         </Badge>
         <Menu
           id="basic-menu"

@@ -1,7 +1,7 @@
 import React from "react";
 export default function NewCollection() {
   return (
-    <div className="container mx-auto my-[5rem]">
+    <div className="container mx-auto my-[5rem] text-black dark:text-white">
       <div className="flex items-center justify-between font-Staatliches gap-4 lg:grid">
         <h1 className="text-3xl tracking-wider w-1/2 lg:w-full">
           New style for latest collections
@@ -13,16 +13,16 @@ export default function NewCollection() {
         </p>
       </div>
       <div className="relative w-[100%] grid grid-rows-2 grid-flow-col gap-4 mt-5 lg:flex lg:flex-col">
-        <div className="row-span-3 bg-[#2F304A] p-2 font-Staatliches w-[100%] h-auto overflow-hidden">
+        <div className="row-span-3 bg-[#2F304A] p-2 font-Staatliches w-[100%] h-auto overflow-hidden dark:bg-[#05342d]">
           <div>
-            <div className="absolute rotate-90 top-0 p-3 text-xl text-center bg-white w-[5rem] rounded-e-full">
+            <div className="absolute rotate-90 top-1 p-3 text-xl text-center bg-white w-[5rem] rounded-e-full dark:bg-[#043730]">
               <p>New</p>
             </div>
             <div className="text-center text-white">
               <h3 className="">Model: Nike432-402</h3>
             </div>
           </div>
-          <div className="grid gap-4 relative top-6 right-10 float-end z-40 text-white">
+          <div className="grid gap-4 relative top-6 right-10 float-end z-40 text-white ">
             <div className=" grid text-5xl font-Staatliches">
               <h1>New</h1>
               <h1>Running</h1>
@@ -41,8 +41,8 @@ export default function NewCollection() {
             />
           </div>
         </div>
-        <div className="flex items-center justify-between col-span-2 bg-[#2F304A] font-Staatliches w-[100%] h-auto -z-30">
-          <div className="absolute top-6 p-3 text-xl text-center bg-white w-[10rem] rounded-e-full z-50">
+        <div className="flex items-center justify-between col-span-2 bg-[#2F304A] font-Staatliches w-[100%] h-auto dark:bg-[#05342d]">
+          <div className="absolute top-6 p-3 text-xl text-center bg-white w-[10rem] rounded-e-full z-50 dark:bg-[#043730]">
             <p>LIMITED OFFER</p>
           </div>
           <div className="font-Staatliches float-right text-white p-2">
@@ -56,7 +56,7 @@ export default function NewCollection() {
             <img src="/sneaker_3.png" alt="" className=" w-[13rem]" />
           </div>
         </div>
-        <div className="row-span-2 col-span-2 bg-[#FC5E3B] p-2 font-Staatliches w-[100%] h-full -z-30">
+        <div className="row-span-2 col-span-2 bg-[#FC5E3B] p-2 font-Staatliches w-[100%] h-full dark:bg-[#05342d]">
           <div className="grid gap-3 font-Staatliches float-right text-white">
             <div className="text-5xl">
               <h1>Get</h1>

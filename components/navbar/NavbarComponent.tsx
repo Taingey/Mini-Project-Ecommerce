@@ -26,6 +26,7 @@ import PersonAdd from "@mui/icons-material/PersonAdd";
 import Category from "../homepage/Categoty";
 import { useAppDispatch } from "@/redux/hooks";
 import { fetchUserProfile } from "@/redux/features/userProfile/userProfileSlice";
+import DarkModeSwitch from "../homepage/DarkMode";
 
 type MenuItem = {
   name: ReactNode;
@@ -35,6 +36,7 @@ type MenuItem = {
 
 export default function NavbarComponent() {
   const pathname = usePathname();
+  const [isDarkMode, setIsDarkMode] = useState(false);
   const [menu, setMenu] = useState<MenuItem[]>(MenuList);
   const [menuOpen, setMenuOpen] = useState(false);
   const cartItems = useSelector(selectProducts);
@@ -72,7 +74,10 @@ export default function NavbarComponent() {
   }, []);
 
   const getMenuStyle = () => {
-    if (document.documentElement.clientWidth <= 2600) {
+    if (
+      typeof window !== "undefined" &&
+      document.documentElement.clientWidth <= 2600
+    ) {
       return { left: menuOpen ? "0" : "-200%" };
     } else {
       setMenuOpen(false);
@@ -83,20 +88,44 @@ export default function NavbarComponent() {
     signOut();
   };
 
+  useEffect(() => {
+    const body = document.body;
+    const storedDarkMode = localStorage.getItem("darkMode");
+    if (storedDarkMode) {
+      setIsDarkMode(storedDarkMode === "true");
+      if (storedDarkMode === "true") {
+        body.classList.add("dark");
+      } else {
+        body.classList.remove("dark");
+      }
+    }
+  }, []);
+
+  const toggleDarkMode = () => {
+    const body = document.body;
+    const newDarkMode = !isDarkMode;
+    setIsDarkMode(newDarkMode);
+    localStorage.setItem("darkMode", newDarkMode.toString());
+    if (newDarkMode) {
+      body.classList.add("dark");
+    } else {
+      body.classList.remove("dark");
+    }
+  };
   return (
-    <div className="container mx-auto w-full pt-2 pb-2 z-[1] bg-white">
-      <div className="sticky w-full top-0 flex items-center justify-between">
-        <Link href="/" className="flex place-items-center ">
+    <div className=" w-full pt-2 pb-2 z-[1] bg-[white] dark:bg-[#05342d] ">
+      <div className="container mx-auto w-full top-0 flex items-center justify-between">
+        <div className="flex place-items-center gap-3">
           <IoMdMenu
-            className="text-2xl text-slate-950 cursor-pointer menu dark:text-white"
+            className="text-3xl text-slate-950 ml-3 cursor-pointer menu dark:text-white"
             onClick={() => setMenuOpen((prev) => !prev)}
           />
-          <div className="w-[150px]">
-            <img src="/logo.png" alt="Logo" />
-          </div>
-        </Link>
+          <Link href="/" className="w-[150px] text-[black] font-Staatliches text-2xl tracking-wider dark:text-white">
+            <span className="border-b-[5px] border-black dark:border-white">Cambo</span> {" "} <span className="border-t-[5px] border-black dark:border-white">Store</span>
+          </Link>
+        </div>
         <p
-          className="navigation flex text-black lg:border-t-[1px] lg:border-cyan-950  z-50"
+          className="navigation flex text-black lg:border-t-[1px] lg:border-cyan-950 z-50 bg-[white] dark:bg-[#05342d]"
           style={getMenuStyle()}
         >
           <div className="flex place-items-center justify-between">
@@ -105,7 +134,7 @@ export default function NavbarComponent() {
               onClick={() => setMenuOpen((prev) => !prev)}
             />
           </div>
-          <ul className="navbar w-full flex font-Staatliches tracking-wider items-center justify-center gap-6">
+          <ul className="navbar w-full flex font-Staatliches tracking-wider items-center justify-center gap-6 dark:text-white">
             {menu.map((item, index) => (
               <li key={index}>
                 <Link href={item.path}>
@@ -118,17 +147,101 @@ export default function NavbarComponent() {
           </ul>
         </p>
         <label htmlFor="" className="sms:hidden">
-          <input type="search" placeholder="Search..." className="rounded-lg" />
+          <input type="search" placeholder="Search..." className="bg-[white] dark:bg-[#043730] dark:text-white" />
         </label>
         <div className="flex place-items-center gap-7">
+          <DarkModeSwitch
+            isDarkMode={isDarkMode}
+            toggleDarkMode={toggleDarkMode}
+          />
           <div className="relative text-xl">
-            <div>
-              <Category cartItems={cartItems} />
-            </div>
+            <Category cartItems={cartItems} />
           </div>
           <React.Fragment>
             {status === "loading" ? (
-              <div>Loading...</div>
+              <div
+                aria-label="Loading..."
+                role="status"
+                className="flex items-center space-x-2"
+              >
+                <svg
+                  className="h-10 w-10 animate-spin stroke-gray-500"
+                  viewBox="0 0 256 256"
+                >
+                  <line
+                    x1="128"
+                    y1="32"
+                    x2="128"
+                    y2="64"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="24"
+                  ></line>
+                  <line
+                    x1="195.9"
+                    y1="60.1"
+                    x2="173.3"
+                    y2="82.7"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="24"
+                  ></line>
+                  <line
+                    x1="224"
+                    y1="128"
+                    x2="192"
+                    y2="128"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="24"
+                  ></line>
+                  <line
+                    x1="195.9"
+                    y1="195.9"
+                    x2="173.3"
+                    y2="173.3"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="24"
+                  ></line>
+                  <line
+                    x1="128"
+                    y1="224"
+                    x2="128"
+                    y2="192"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="24"
+                  ></line>
+                  <line
+                    x1="60.1"
+                    y1="195.9"
+                    x2="82.7"
+                    y2="173.3"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="24"
+                  ></line>
+                  <line
+                    x1="32"
+                    y1="128"
+                    x2="64"
+                    y2="128"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="24"
+                  ></line>
+                  <line
+                    x1="60.1"
+                    y1="60.1"
+                    x2="82.7"
+                    y2="82.7"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="24"
+                  ></line>
+                </svg>
+              </div>
             ) : session && session.user ? (
               <div>
                 <Box
@@ -226,7 +339,7 @@ export default function NavbarComponent() {
               </div>
             ) : (
               <Link href="/login" className="text-xl">
-                <FaUser />
+                <FaUser className="text-black dark:text-white"/>
               </Link>
             )}
           </React.Fragment>

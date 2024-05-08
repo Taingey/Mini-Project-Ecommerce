@@ -3,17 +3,18 @@ import CountUp from "react-countup";
 import NewCollection from "./NewCollection";
 import Footer from "./Footer";
 import ProductCard from "@/app/(user)/product/page";
+import VisaCard from "./VisaCard";
 
 export default function HomePage() {
   return (
-    <div>
+    <div className="bg-[white] dark:bg-[#043730]">
       <div className="container mx-auto px-6">
-        <div className="flex items-start justify-between gap-5 mt-[4rem] lg:flex-col">
-          <div className="font-Staatliches grid gap-4">
+        <div className="flex items-start justify-between gap-5 pt-[4rem] lg:flex-col">
+          <div className="font-Staatliches grid gap-4 dark:text-white">
             <h1 className=" text-6xl tracking-widest w-[80%] sms:w-full">
               Trendy shose to luxury{" "}
             </h1>
-            <p className="w-[65%] tracking-wider sms:w-full">
+            <p className="w-[65%] tracking-wider sms:w-full ">
               finding your shoes has never been easier. Browse the best
               selection of famous fashion brands that suit your style and
               preferences
@@ -67,9 +68,9 @@ export default function HomePage() {
               <h2>Best shoes discount 30% off all shoes!</h2>
             </div>
           </div>
-          <div className="relative w-[100%] flex items-center justify-center ">
-            <div className="bg-[#2F304A] font-Staatliches w-[100%] h-[35rem] -z-30 rounded-ee-full">
-              <div className="absolute top-6 p-3 text-xl text-center bg-white w-[10rem] rounded-e-full">
+          <div className="relative w-[100%] flex items-center justify-center text-">
+            <div className="bg-[#2F304A] font-Staatliches w-[100%] h-[35rem] rounded-ee-full dark:bg-[#05342d]">
+              <div className="absolute top-6 p-3 text-xl text-center bg-[white] w-[10rem] rounded-e-full dark:bg-[#043730] dark:text-white">
                 <p>LIMITED OFFER</p>
               </div>
               <div className="-rotate-90 absolute top-[50%] -left-9 text-white">
@@ -83,10 +84,11 @@ export default function HomePage() {
             />
           </div>
         </div>
+        <NewCollection />
+        <ProductCard />
+        <VisaCard/>
+        <Footer />
       </div>
-      <NewCollection />
-      <ProductCard/>
-      <Footer />
     </div>
   );
 }

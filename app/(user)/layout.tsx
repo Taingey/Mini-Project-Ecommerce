@@ -27,10 +27,10 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en">
+		<html lang="en" >
 			<SessionWrapper>
 				<body
-					className={`${inter.variable} ${suwannaphum.variable} ${localCustomFont.variable}`}
+					className={`${inter.variable} ${suwannaphum.variable} ${localCustomFont.variable}  dark:bg-slate-600`}
 				>
 					<StoreProvider>
 						<header>

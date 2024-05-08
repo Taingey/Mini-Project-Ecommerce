@@ -38,37 +38,35 @@ export default function Login() {
       const response = await fetch(`http://localhost:3000/api/login`, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/json"
         },
-        body: JSON.stringify(values),
+        body: JSON.stringify(values)
       });
 
       if (response.ok) {
         const data = await response.json();
         const accessToken = data.accessToken;
-        localStorage.setItem('accessToken', accessToken);
+        localStorage.setItem("accessToken", accessToken);
         console.log(data);
       } else {
-        console.error('Authentication failed');
+        console.error("Authentication failed");
       }
     } catch (error) {
-      console.error('Error during login:', error);
+      console.error("Error during login:", error);
     } finally {
       setLoading(false);
     }
   };
- 
 
-	if (loading) {
-		return (
-			<div className={`${style.container}`}>
-				<h1 className="text-6xl text-center">Loading...</h1>
-			</div>
-		);
-	}
+  if (loading) {
+    return (
+      <div className={`${style.container}`}>
+        <h1 className="text-6xl text-center">Loading...</h1>
+      </div>
+    );
+  }
 
   return (
-
     <main>
       <Formik
         initialValues={initialValues}
@@ -80,11 +78,8 @@ export default function Login() {
         <Form>
           <div className="flex justify-center  flex-1">
             <div className="p-6 w-max">
-              <Link href='/'>
-                <img
-                  src="/logo.png"
-                  className="w-32 mx-auto"
-                />
+              <Link href="/">
+                <img src="/logo.png" className="w-32 mx-auto" />
               </Link>
               <div className="mt-12 flex flex-col items-center">
                 <h1 className="text-2xl xl:text-3xl font-Staatliches tracking-wider font-extrabold">
@@ -116,7 +111,9 @@ export default function Login() {
                           />
                         </svg>
                       </div>
-                      <span className="ml-4 font-Staatliches tracking-widest">Google</span>
+                      <span className="ml-4 font-Staatliches tracking-widest">
+                        Google
+                      </span>
                     </button>
 
                     <button
@@ -131,7 +128,9 @@ export default function Login() {
                           />
                         </svg>
                       </div>
-                      <span className="ml-4 font-Staatliches tracking-widest">GitHub</span>
+                      <span className="ml-4 font-Staatliches tracking-widest">
+                        GitHub
+                      </span>
                     </button>
                   </div>
 
@@ -199,7 +198,10 @@ export default function Login() {
                       </svg>
                       <span className="ml-3">Sign Up</span>
                     </button>
-                    <Link href='/register' className="text-center font-Staatliches relative top-3 tracking-wider hover:underline">
+                    <Link
+                      href="/register"
+                      className="text-center font-Staatliches relative top-3 tracking-wider hover:underline"
+                    >
                       <p>Don&#39;t have an account</p>
                     </Link>
                     <p className="mt-6 text-xs text-gray-600 text-center font-Staatliches tracking-wider">
@@ -225,7 +227,6 @@ export default function Login() {
           </div>
         </Form>
       </Formik>
-      </main>
-
+    </main>
   );
 }

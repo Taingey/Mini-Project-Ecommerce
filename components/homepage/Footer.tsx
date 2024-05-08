@@ -1,20 +1,27 @@
 import React from "react";
-import Link from "next/link"
+import Link from "next/link";
 import {
   FaFacebookF,
   FaTwitter,
-  FaGithub,
   FaTelegramPlane,
-  FaArrowUp
+  FaArrowUp,
+  FaLinkedin
 } from "react-icons/fa";
 import { LuMail, LuMapPin, LuPhone } from "react-icons/lu";
 const Footer = () => {
   return (
-    <section className="bg-white mt-5">
+    <section className="pt-5 font-Staatliches tracking-wider bg-[white] dark:bg-[#043730]">
       <footer className="container mx-auto relative py-7 border-t-[1px] border-slate-300">
         <div className="flex items-start justify-between gap-5 sms:flex-col">
-          <div className="grid gap-3">
-            <img src="/logo.png" alt="LOGO" width={150} />
+          <div className="grid gap-6">
+            <div className="text-[black] font-Staatliches text-2xl tracking-wider dark:text-white">
+              <span className="border-b-[5px] border-black dark:border-white">
+                Cambo
+              </span>{" "}
+              <span className="border-t-[5px] border-black dark:border-white">
+                Store
+              </span>
+            </div>
             <address className="grid gap-3">
               <div className="grid gap-3 text-slate-900 dark:text-white">
                 <span className="flex gap-2 place-items-center">
@@ -35,26 +42,26 @@ const Footer = () => {
               <span className="flex gap-3">
                 <Link
                   href=""
-                  className="bg-[white]  p-2 rounded-full shadow-md shadow-slate-200 hover:bg-blue-400 hover:text-slate-50 transition duration-300 ease-in-out dark:shadow-slate-800"
+                  className="bg-[white]  p-2 rounded-full shadow-md shadow-slate-200 hover:bg-black hover:text-slate-50 transition duration-300 ease-in-out dark:shadow-slate-800"
                 >
                   <FaFacebookF />
                 </Link>
                 <Link
                   href=""
-                  className="bg-[white] p-2 rounded-full shadow-md shadow-slate-200 hover:bg-blue-400 hover:text-slate-50 transition duration-300 ease-in-out dark:shadow-slate-800"
+                  className="bg-[white] p-2 rounded-full shadow-md shadow-slate-200 hover:bg-black hover:text-slate-50 transition duration-300 ease-in-out dark:shadow-slate-800"
                 >
                   <FaTwitter />
                 </Link>
                 <Link
                   href="https://github.com/Taingey"
                   target="_blank"
-                  className="bg-[white] p-2 rounded-full shadow-md shadow-slate-200 hover:bg-blue-400 hover:text-slate-50 transition duration-300 ease-in-out dark:shadow-slate-800"
+                  className="bg-[white] p-2 rounded-full shadow-md shadow-slate-200 hover:bg-black hover:text-slate-50 transition duration-300 ease-in-out dark:shadow-slate-800"
                 >
-                  <FaGithub />
+                  <FaLinkedin />
                 </Link>
                 <Link
                   href=""
-                  className="bg-[white] p-2 rounded-full shadow-md shadow-slate-200 hover:bg-blue-400 hover:text-slate-50 transition duration-300 ease-in-out dark:shadow-slate-800"
+                  className="bg-[white] p-2 rounded-full shadow-md shadow-slate-200 hover:bg-black hover:text-slate-50 transition duration-300 ease-in-out dark:shadow-slate-800"
                 >
                   <FaTelegramPlane />
                 </Link>
@@ -93,9 +100,9 @@ const Footer = () => {
       <div className="container mx-auto border-solid border-y-[1px] border-slate-300 p-3 dark:border-slate-700/40">
         <div className="container mx-auto flex items-center justify-between">
           <div className="text-slate-900 dark:text-slate-50">
-            Copyright © 2024 Online-Teach, Inc.
+            Copyright © 2024 CAMBO STORE, Inc.
           </div>
-          <Link href="" className="p-2 bg-blue-400 text-slate-50 rounded-lg">
+          <Link href="" className="py-3 px-4 bg-black text-white">
             <FaArrowUp />
           </Link>
         </div>

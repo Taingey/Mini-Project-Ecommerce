@@ -10,112 +10,124 @@ export const metadata: Metadata = {
 export default function page() {
   return (
     <div className="">
-      <div className="container mx-auto mt-[3rem] px-2 overflow-hidden">
-        <div className="flex items-center justify-evenly lg:flex-col ">
-          <div className="grid gap-3 font-Staatliches">
-            <h1 className="text-6xl tracking-wider w-[80%]">
-              The Market of Trends
-            </h1>
-            <p className="tracking-wider w-[80%] ">
-              Our mission is to give access to the most coveted objects in the
-              world in the most intelligent way possible. Buy and sell the
-              sneakers, Streetwear, High Tech items, collectibles, trading cards
-              and trendiest accessories.
-            </p>
-          </div>
-          <div className="rotate-45 w-[100rem] lg:w-full -z-30">
-            <img
-              src="/sneaker_4.png"
-              alt="Sneaker Banner"
-              className="drop-shadow image_anime w-[100rem] lg:w-full"
-            />
-          </div>
-        </div>
-        <div className="flex items-start justify-center gap-3 mt-[3rem]">
-          <div className="flex items-center justify-between font-Staatliches bg-black py-2 px-4 text-white gap-5">
-            <h4>Verification</h4>
-            <p>+ + + + +</p>
-          </div>
-          <div className="flex items-center justify-between font-Staatliches bg-black py-2 px-4 text-white gap-5">
-            <h4>Buyers</h4>
-            <p>+ + + + +</p>
-          </div>
-          <div className="flex items-center justify-between font-Staatliches bg-black py-2 px-4 text-white gap-5">
-            <h4>Salespeople</h4>
-            <p>+ + + + +</p>
-          </div>
-        </div>
-        <div className="grid grid-cols-3 gap-[3rem] font-Staatliches my-[8rem] lg:grid-cols-2">
-          <div className="flex items-center justify-center flex-col gap-4">
-            <img src="/sneaker.svg" alt="sneaker" className="w-[5rem]" />
-            <div className="flex flex-col text-center gap-5">
-              <h2 className="tracking-wider text-xl">Verified by StockX</h2>
-              <p className="tracking-wider line-clamp-2">
-                Each item sold is subject to our own multi-step verification
-                process, carried out by our team of&#39; verification experts.
+      <div className="bg-[white] dark:bg-[#043730]">
+        <div className="container mx-auto pt-[3rem] px-2 overflow-hidden ">
+          <div className="flex items-center justify-evenly lg:flex-col text-[black] dark:text-white">
+            <div className="grid gap-3 font-Staatliches">
+              <h1 className="text-6xl tracking-wider w-[80%]">
+                The Market of Trends
+              </h1>
+              <p className="tracking-wider w-[80%] ">
+                Our mission is to give access to the most coveted objects in the
+                world in the most intelligent way possible. Buy and sell the
+                sneakers, Streetwear, High Tech items, collectibles, trading
+                cards and trendiest accessories.
               </p>
             </div>
-          </div>
-          <div className="flex items-center justify-center flex-col gap-4">
-            <img src="/graph-down.svg" alt="graph-down" className="w-[5rem]" />
-            <div className="flex flex-col text-center gap-5">
-              <h2 className="tracking-wider text-xl">Price transparency</h2>
-              <p className="tracking-wider line-clamp-2">
-                Our real-time platform works like the - Stock Exchange allowing
-                you to&#39; buy and sell the most coveted items at their fair
-                price.
-              </p>
+            <div className="rotate-45 w-[100rem] lg:w-full z-10">
+              <img
+                src="/sneaker_4.png"
+                alt="Sneaker Banner"
+                className="drop-shadow image_anime w-[100rem] lg:w-full"
+              />
             </div>
           </div>
-          <div className="flex items-center justify-center flex-col gap-4">
-            <img src="/globe.svg" alt="globe" className="w-[5rem]" />
-            <div className="flex flex-col text-center gap-5">
-              <h2 className="tracking-wider text-xl">Global access</h2>
-              <p className="tracking-wider line-clamp-2">
-                Whether&#39; it is pre-order, &#39;limited editions or&#39; out
-                of stock items - our millions of customers from 200 countries
-                allow you to easily secure these coveted and hard-to-find items.
-              </p>
+          <div className="flex items-start justify-center gap-3 mt-[3rem] sms:flex-wrap">
+            <div className="flex items-center justify-between w-full font-Staatliches bg-black py-2 px-4 text-white gap-5 dark:bg-[#05342d]">
+              <h4>Verification</h4>
+              <p>+ + + + +</p>
+            </div>
+            <div className="flex items-center justify-between w-full font-Staatliches bg-black py-2 px-4 text-white gap-5 dark:bg-[#05342d]">
+              <h4>Buyers</h4>
+              <p>+ + + + +</p>
+            </div>
+            <div className="flex items-center justify-between w-full font-Staatliches bg-black py-2 px-4 text-white gap-5 dark:bg-[#05342d]">
+              <h4>Salespeople</h4>
+              <p>+ + + + +</p>
             </div>
           </div>
-          <div className="flex items-center justify-center flex-col gap-4">
-            <img src="/no-bs.svg" alt="no-bs" className="w-[5rem]" />
-            <div className="flex flex-col text-center gap-5">
-              <h2 className="tracking-wider text-xl">
-                No unnecessary blah-bla
-              </h2>
-              <p className="tracking-wider line-clamp-2">
-                No chargebacks, no photos, no far-fetched descriptions, and no
-                connections to dishonest buyers or sellers. We take care of
-                everything so that you can buy and sell with confidence.
-              </p>
+          <div className="grid grid-cols-3 gap-[3rem] font-Staatliches my-[8rem] lg:grid-cols-2 text-black dark:text-white">
+            <div className="flex items-center justify-center flex-col gap-4">
+              <img
+                src="/sneaker.svg"
+                alt="sneaker"
+                className="w-[5rem] dark:brightness-0 dark:invert"
+              />
+
+              <div className="flex flex-col text-center gap-5">
+                <h2 className="tracking-wider text-xl">Verified by StockX</h2>
+                <p className="tracking-wider line-clamp-2">
+                  Each item sold is subject to our own multi-step verification
+                  process, carried out by our team of&#39; verification experts.
+                </p>
+              </div>
             </div>
-          </div>
-          <div className="flex items-center justify-center flex-col gap-4">
-            <img src="/lock-1.svg" alt="secure" className="w-[5rem]" />
-            <div className="flex flex-col text-center gap-5">
-              <h2 className="tracking-wider text-xl">Secure</h2>
-              <p className="tracking-wider line-clamp-2">
-                Preserving the&#39; integrity of our platform means staying
-                ahead of&#39;. Our security and anti-fraud systems, set up by
-                our world-renowned partners, ensure the protection of your
-                personal information 24 hours on 24, 7 Days out of 7.
-              </p>
+            <div className="flex items-center justify-center flex-col gap-4">
+              <img
+                src="/graph-down.svg"
+                alt="graph-down"
+                className="w-[5rem] dark:brightness-0 dark:invert"
+              />
+              <div className="flex flex-col text-center gap-5">
+                <h2 className="tracking-wider text-xl">Price transparency</h2>
+                <p className="tracking-wider line-clamp-2">
+                  Our real-time platform works like the - Stock Exchange
+                  allowing you to&#39; buy and sell the most coveted items at
+                  their fair price.
+                </p>
+              </div>
             </div>
-          </div>
-          <div className="flex items-center justify-center flex-col gap-4">
-            <img
-              src="/customer-service.svg"
-              alt="customer service"
-              className="w-[5rem]"
-            />
-            <div className="flex flex-col text-center gap-5">
-              <h2 className="tracking-wider text-xl">At your serviceX</h2>
-              <p className="tracking-wider line-clamp-2">
-                Thanks to our The&#39; aide centre, and our global&#39; support
-                team, you can be sure that we are always available to answer any
-                questions regarding our platform.
-              </p>
+            <div className="flex items-center justify-center flex-col gap-4">
+              <img src="/globe.svg" alt="globe" className="w-[5rem] dark:brightness-0 dark:invert" />
+              <div className="flex flex-col text-center gap-5">
+                <h2 className="tracking-wider text-xl">Global access</h2>
+                <p className="tracking-wider line-clamp-2">
+                  Whether&#39; it is pre-order, &#39;limited editions or&#39;
+                  out of stock items - our millions of customers from 200
+                  countries allow you to easily secure these coveted and
+                  hard-to-find items.
+                </p>
+              </div>
+            </div>
+            <div className="flex items-center justify-center flex-col gap-4">
+              <img src="/no-bs.svg" alt="no-bs" className="w-[5rem] dark:brightness-0 dark:invert" />
+              <div className="flex flex-col text-center gap-5">
+                <h2 className="tracking-wider text-xl">
+                  No unnecessary blah-bla
+                </h2>
+                <p className="tracking-wider line-clamp-2">
+                  No chargebacks, no photos, no far-fetched descriptions, and no
+                  connections to dishonest buyers or sellers. We take care of
+                  everything so that you can buy and sell with confidence.
+                </p>
+              </div>
+            </div>
+            <div className="flex items-center justify-center flex-col gap-4">
+              <img src="/lock-1.svg" alt="secure" className="w-[5rem] dark:brightness-0 dark:invert" />
+              <div className="flex flex-col text-center gap-5">
+                <h2 className="tracking-wider text-xl">Secure</h2>
+                <p className="tracking-wider line-clamp-2">
+                  Preserving the&#39; integrity of our platform means staying
+                  ahead of&#39;. Our security and anti-fraud systems, set up by
+                  our world-renowned partners, ensure the protection of your
+                  personal information 24 hours on 24, 7 Days out of 7.
+                </p>
+              </div>
+            </div>
+            <div className="flex items-center justify-center flex-col gap-4">
+              <img
+                src="/customer-service.svg"
+                alt="customer service"
+                className="w-[5rem] dark:brightness-0 dark:invert"
+              />
+              <div className="flex flex-col text-center gap-5">
+                <h2 className="tracking-wider text-xl">At your serviceX</h2>
+                <p className="tracking-wider line-clamp-2">
+                  Thanks to our The&#39; aide centre, and our global&#39;
+                  support team, you can be sure that we are always available to
+                  answer any questions regarding our platform.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -226,7 +238,7 @@ export default function page() {
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 }

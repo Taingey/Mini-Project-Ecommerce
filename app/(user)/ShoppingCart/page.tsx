@@ -12,6 +12,7 @@ import {
   setProductsItem
 } from "@/redux/features/cart/cartSlice";
 import { ProductType } from "@/lib/definitions";
+import Footer from "@/components/homepage/Footer";
 
 export default function Shop() {
   const [cartItemsFromStore, setCartItemsFromStore] = useState<ProductType[]>(
@@ -89,51 +90,51 @@ export default function Shop() {
   };
 
   return (
-    <div className="container mx-auto">
-      <div className="grid gap-5 font-Staatliches my-6">
-        <h1 className="text-3xl tracking-wider">Your Shopping Cart</h1>
+    <div className="bg-[white] dark:bg-[#043730]">
+      <div className="container mx-auto grid gap-5 font-Staatliches py-6">
+        <h1 className="text-3xl tracking-wider dark:text-white">Your Shopping Cart</h1>
         <div className="flex gap-5 lg:flex-col">
           <div className="flex items-center justify-between flex-col w-full gap-5 ">
             {productsState.map((product) => (
               <div
                 key={product.id}
-                className="flex items-center justify-between w-full gap-5 border-[1px] p-3 border-slate-600"
+                className="flex items-center justify-between w-full gap-5 border-[1px] p-2 border-slate-600"
               >
                 <img src={product.image} alt="" className="w-[10rem]" />
                 <div className="flex flex-col gap-4">
                   <div className="flex items-center justify-between gap-5 w-full">
                     <div>
-                      <h1 className="tracking-wider text-lg">{product.name}</h1>
-                      <p>{product.category}</p>
+                      <h1 className="tracking-wider text-lg dark:text-white">{product.name}</h1>
+                      <p className="dark:text-white">{product.category}</p>
                     </div>
-                    <div className="flex flex-col">
+                    <div className="flex flex-col dark:text-white">
                       <Tooltip title="Delete">
                         <IconButton onClick={() => deleteItem(product.id)}>
-                          <DeleteIcon />
+                          <DeleteIcon className="dark:text-white"/>
                         </IconButton>
                       </Tooltip>
                       <Tooltip title="Favorite">
                         <IconButton>
-                          <FavoriteIcon />
+                          <FavoriteIcon className="dark:text-white"/>
                         </IconButton>
                       </Tooltip>
                     </div>
                   </div>
                   <div className="flex place-items-center justify-between gap-5">
-                    <p className="tracking-wider">Price: $ {product.price}</p>
+                    <p className="tracking-wider dark:text-white">Price: $ {product.price}</p>
                     <div className="flex items-center justify-center">
                       <span
                         onClick={() => handleRemoveFromCart(product.id)}
-                        className="p-[5px] cursor-pointer border border-r-0 w-7 h-full flex items-center justify-center"
+                        className="p-[5px] cursor-pointer border border-r-0 w-7 h-full flex items-center justify-center dark:text-white"
                       >
                         -
                       </span>
-                      <span className="border p-[5px] border-gray-300 h-full text-center w-12 ">
+                      <span className="border p-[5px] border-gray-300 h-full text-center w-12 dark:text-white">
                         {product.quantity}
                       </span>
                       <span
                         onClick={() => handleAddToCart(product)}
-                        className="p-[5px] cursor-pointer border border-gray-300 border-l-0 w-7 h-full flex items-center justify-center"
+                        className="p-[5px] cursor-pointer border border-gray-300 border-l-0 w-7 h-full flex items-center justify-center dark:text-white"
                       >
                         +
                       </span>
@@ -143,8 +144,8 @@ export default function Shop() {
               </div>
             ))}
           </div>
-          <div className="sticky top-5 grid gap-4 w-full h-max border-[1px] p-5 border-slate-600">
-            <div className="flex items-center justify-between">
+          <div className="sticky top-5 grid gap-4 w-full h-max border-[1px] p-5 border-slate-600 dark:text-white">
+            <div className="flex items-center justify-between ">
               <h1>Order Amout: </h1>
               <h1>$250</h1>
             </div>
@@ -168,7 +169,7 @@ export default function Shop() {
                       placeholder="Enter discount code"
                       value={discountCode}
                       onChange={(e) => setDiscountCode(e.target.value)}
-                      className="w-full"
+                      className="w-full bg-transparent"
                     />
                     <button
                       onClick={applyDiscount}
@@ -202,6 +203,7 @@ export default function Shop() {
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 }

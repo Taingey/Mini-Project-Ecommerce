@@ -17,6 +17,9 @@ const config: Config = {
       fontFamily: {
         Staatliches: "Staatliches, sans-serif"
       },
+      boxShadow: {
+        lightShadow: "0px 0px 2px #141414, -11px -11px 22px #05342d"
+      },
       screens: {
         lg: { max: "1030px" },
         mds: { max: "830px" },
